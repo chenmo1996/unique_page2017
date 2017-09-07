@@ -332,7 +332,7 @@ $("#contact form").on("submit", function(event) {
 	var $grade = $("#contact form #contact_grade")
 	var $file = $("#contact_file")[0]
 	var files = $file.files[0]
-console.log(files)
+// console.log(files)
 	if ($select.val() == 7) {
 		alert("请选择组别");
 		return false;
@@ -359,15 +359,15 @@ console.log(files)
 
 	if (files != undefined) {
 		var formData = new FormData()
-		console.log( $('#contact_name').val())
-		console.log(files)
+		// console.log( $('#contact_name').val())
+		// console.log(files)
 		formData.append('name', $('#contact_name').val())
 		formData.append('resume', files)
 		// let resp = await post('/api/signup/post', data)
 		// if (JSON.parse(resp)['status'] === 'success') {
 		// 	postJSON(1)
 		// }
-		console.log(formData)
+		// console.log(formData)
 		$.ajax({
 			url: 'https://api.fredliang.cn/api/signup/post',
 			type: 'POST',
@@ -376,16 +376,16 @@ console.log(files)
 			processData: false,
 			contentType: false
 		}).done(function (res) {
-			console.log(res)
+			// console.log(res)
 			if (res.status === 'success') {
 				_post['resume'] = 1
 				console.log('简历上传成功')
 				// _post['resume'] = 0
 				var json_data = JSON.stringify(_post)
-				console.log(json_data);
+				// console.log(json_data);
 
 				$.post('https://api.fredliang.cn/api/signup/submit', json_data, function (data) {
-					console.log(data)
+					// console.log(data)
 					if (data.status == 'success') {
 						alert('报名成功');
 					} else {
@@ -406,10 +406,10 @@ console.log(files)
 			_post['resume'] = 0
 			// _post['resume'] = 0
 			var json_data = JSON.stringify(_post)
-			console.log(json_data);
+			// console.log(json_data);
 
 			$.post('https://api.fredliang.cn/api/signup/submit', json_data, function (data) {
-				console.log(data)
+				// console.log(data)
 				if (data.status == 'success') {
 					alert('报名成功');
 				} else {
